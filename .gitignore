@@ -7,6 +7,13 @@
 # Ignore bundler config.
 /.bundle
 
+# 以下を追加
+.DS_Store
+/vendor/bundle
+
+# RubyMineを使用されている方は次も追加
+/.idea
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -34,3 +41,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
