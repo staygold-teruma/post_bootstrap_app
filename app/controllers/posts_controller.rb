@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(id: :asc)
   end
+
+  # Post.all では「編集時に順番が入れ替わってしまう」問題が起きるため
+  # id順で並べるようにしておく
+
 
   def show
     @post = Post.find(params[:id])

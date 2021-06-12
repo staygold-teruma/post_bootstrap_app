@@ -1,2 +1,23 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>投稿一覧</h1>
+<table style="border: 2px black solid; ">
+  <thead> 
+    <tr>
+      <th scope="col" style="border: 1px black solid;">No.</th>
+      <th scope="col" style="border: 1px black solid;">タイトル</th>
+      <th scope="col" style="border: 1px black solid;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each.with_index(1) do |post, i| %>
+      <tr>
+        <th scope="row" style="border: 1px black solid;"><%= i %></th>
+        <td style="border: 1px black solid;"><%= post.title %></td>
+        <td style="border: 1px black solid;">
+          <%= link_to "詳細", post %>
+          <%= link_to "編集", edit_post_path(post) %>
+          <%= link_to "削除", post, method: :delete, data: {confirm:"削除しますか?"} %>
+        </td style="border: 1px black solid;">
+      </tr>
+    <% end %>
+  </tbody>
+</table>
