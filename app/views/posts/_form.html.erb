@@ -1,10 +1,12 @@
 <%= form_with model: @post, local: true do |f| %>
 <div>
-  <%= f.label :title, "タイトル" %>
+  <!-- ***** 次を修正(, "タイトル" を消去) ***** -->
+  <%= f.label :title %>
   <%= f.text_field :title %>
 </div>
 <div>
-  <%= f.label :content, "内容" %>
+  <!-- ***** 次を修正(, "内容" を消去)  ***** -->
+  <%= f.label :content %>
   <%= f.text_field :content %>
 </div>
 <div>
