@@ -17,8 +17,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create!(post_params)
-    redirect_to post, notice: "投稿しました"
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post, notice: "投稿しました"
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
+    end
   end
 
   # redirect_to post のpostは保存に成功したPostオブジェクトのID値を返す
@@ -31,8 +36,12 @@ class PostsController < ApplicationController
   def update
     # post = Post.find(params[:id])
     # before_actionで統一したため、@postに変更
-    @post.update!(post_params)
-    redirect_to @post, notice: "更新しました"
+    if @post.update(post_params)
+      redirect_to @post, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
