@@ -1,0 +1,15 @@
+<% if @post.errors.any? %>
+  <div>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><span style="color: red;"><%= msg %></span></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!--
+エラーメッセージはflashとは別に、フォームで無効なデータが送信された際に発行される
+errors.full_messageは全てのエラーメッセージを配列で取得する
+それをeachで回してリスト方式でmsgとして表示させる
+-->
