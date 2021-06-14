@@ -1,3 +1,9 @@
 <h1>投稿詳細</h1>
-<p>タイトル <%= @post.title %></p>
-<p>内容 <%= @post.content %></p>
+<section class="card border-dark mt-5">
+  <div class="card-header">
+    <h4><%= @post.title %></h4>
+  </div>
+  <div class="card-body">
+    <p class="card^text"><%= simple_format(h @post.content) %></p>
+  </div>
+</section>
