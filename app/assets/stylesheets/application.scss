@@ -29,8 +29,10 @@ body {
 //バリデーションエラー後のフォーム（エラー時に自動生成されるdiv）
 .field_with_errors {
   display: contents;
-  input {
-    border: 2px solid red;
+
+  input,
+  textarea {
+    @extend .is-invalid;
   }
 }
 
@@ -49,4 +51,13 @@ td {
 
 .break-word {
   word-break: break-word;
+}
+
+//flash
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }
