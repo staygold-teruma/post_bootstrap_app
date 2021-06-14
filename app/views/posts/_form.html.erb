@@ -1,16 +1,16 @@
 <%= render "layouts/error_messages" %>
 <%= form_with model: @post, local: true do |f| %>
-<div>
-  <!-- ***** 次を修正(, "タイトル" を消去) ***** -->
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-<div>
-  <!-- ***** 次を修正(, "内容" を消去)  ***** -->
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-</div>
-<div>
-  <%= f.submit button_value %>
-</div>
+  <div class="form-group">
+    <!-- ***** 次を修正(, "タイトル" を消去) ***** -->
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <!-- ***** 次を修正(, "内容" を消去)  ***** -->
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control", rows: 10 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit button_value, class: "btn btn-primary " %>
+  </div>
 <% end %>
